@@ -1,9 +1,10 @@
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-&-y*s-0*39-b&jh!%z-#cw%yfc9p5nohh^e1(p8r1n29w)28w('
+SECRET_KEY = os.getenv('DJNAGO_SECRET_KEY')
 
 DEBUG = True
 
@@ -21,8 +22,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'djoser',
+    'accounts'
 ]
 
+
+AUTH_USER_MODEL = "accounts.User"
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
@@ -135,6 +139,6 @@ DJOSER = {
 #Email configuration for mail sending
 EMAIL_USE_TLS = True  
 EMAIL_HOST = 'smtp.gmail.com'  
-EMAIL_HOST_USER = 'jisa.mahmud20@gmail.com'  
-EMAIL_HOST_PASSWORD = 'ivnl fynx bqtx goei'  
+EMAIL_HOST_USER = os.getenv('HOST_EMAIL')
+EMAIL_HOST_PASSWORD = os.getenv('HOST_PASSWORD')
 EMAIL_PORT = 587  
