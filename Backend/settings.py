@@ -43,8 +43,12 @@ REST_FRAMEWORK = {
     ),
 }
 
+from datetime import timedelta
+
 SIMPLE_JWT = {
-   'AUTH_HEADER_TYPES': ('JWT',),
+    'AUTH_HEADER_TYPES': ('JWT',),
+    'UPDATE_LAST_LOGIN': True,
+    'ACCESS_TOKEN_LIFETIME': timedelta(days= 1),
 }
 
 MIDDLEWARE = [
@@ -138,6 +142,7 @@ DJOSER = {
     'USERNAME_RESET_CONFIRM_URL': '#/username/reset/confirm/{uid}/{token}',
     'ACTIVATION_URL': '/activate/{uid}/{token}',
     'SEND_ACTIVATION_EMAIL': True,
+    "UPDATE_LAST_LOGIN": True,
     'SERIALIZERS': {
         'user_create': 'accounts.serializers.UserRegistrationSerializer',
     },
