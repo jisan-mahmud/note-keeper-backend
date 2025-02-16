@@ -24,8 +24,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'djoser',
-    'accounts',
 
+    'accounts',
 
     #extrensions for debuging
     'django_extensions'
@@ -42,8 +42,6 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
 }
-
-from datetime import timedelta
 
 from datetime import timedelta
 
@@ -146,6 +144,10 @@ DJOSER = {
     'USERNAME_RESET_CONFIRM_URL': '#/username/reset/confirm/{uid}/{token}',
     'ACTIVATION_URL': '/activate/{uid}/{token}',
     'SEND_ACTIVATION_EMAIL': True,
+    'RESEND_ACTIVATION_EMAIL': True,
+    'SET_PASSWORD_RETYPE': True,
+    'PASSWORD_RESET_SHOW_EMAIL_NOT_FOUND': True,
+    'PASSWORD_RESET_CONFIRM_RETYPE': True,
     "UPDATE_LAST_LOGIN": True,
     'SERIALIZERS': {
         'user_create': 'accounts.serializers.UserRegistrationSerializer',
