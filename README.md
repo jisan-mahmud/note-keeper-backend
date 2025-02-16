@@ -18,7 +18,7 @@ Note Keeper is a simple web-based note-taking application that allows users to c
 ## Tech Stack
 
 - **Backend**: Django (Python Framework)
-- **Frontend**: Tailwind CSS, React.js
+- **Frontend**: Tailwind CSS, React.js (Repository: [Note Keeper FrontEnd](https://github.com/jisan-mahmud/note_keeper_frontend))
 - **Database**: PostgreSQL (or SQLite for development)
 - **Authentication**: JWT Tokens
 - **Deployment**: Nginx, Gunicorn (for production)
@@ -72,8 +72,8 @@ python manage.py runserver
 ## Contact
 
 📌 Author: Jisan Mahmud
-🔗 GitHub: JisanMahmud
-📧 Email: [your-email@example.com]
+🔗 GitHub: jisan-mahmud
+📧 Email: [jisan.mahmud203@gmail.com]
 
 
 
