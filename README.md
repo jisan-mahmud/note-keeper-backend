@@ -35,6 +35,7 @@ Clone this repository to your local machine:
 ```bash
 git clone https://github.com/jisan-mahmud/note-keeper-backend.git
 cd note-keeper-backend
+```
 
 
 ### 2. nstall Dependencies
@@ -43,7 +44,7 @@ Install all the necessary dependencies using pip:
 
 ```bash
 pip install -r requirements.txt
-
+```
 
 ### 3. Set Up the Database
 
@@ -52,7 +53,7 @@ Run migrations to set up the database:
 
 ```bash
 python manage.py migrate
-
+```
 
 ### 4. Run the Development Server
 
@@ -61,7 +62,7 @@ Start the development server:
 
 ```bash
 python manage.py runserver
-
+```
 
 ## Frontend Informations
 
