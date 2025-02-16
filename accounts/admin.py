@@ -5,7 +5,7 @@ from .models import User
 class CustomUserAdmin(UserAdmin):
     # Use 'email' instead of 'username'
     ordering = ['email']
-    list_display = ['email', 'first_name', 'last_name']
+    list_display = ['id', 'email', 'first_name', 'last_name']
 
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
