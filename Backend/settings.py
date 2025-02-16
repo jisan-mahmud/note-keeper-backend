@@ -45,11 +45,15 @@ REST_FRAMEWORK = {
 
 from datetime import timedelta
 
+from datetime import timedelta
+
 SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('JWT',),
     'UPDATE_LAST_LOGIN': True,
-    'ACCESS_TOKEN_LIFETIME': timedelta(days= 1),
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=7),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=30 * 7)  # Approximate 7 months
 }
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
