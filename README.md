@@ -2,7 +2,6 @@
 
 Note Keeper is a simple web-based note-taking application that allows users to create, organize, and manage notes with labels/tags. It offers features similar to Google Keep, such as categorizing notes, searching, and tagging for better organization.
 
----
 
 ## Features
 
@@ -13,7 +12,6 @@ Note Keeper is a simple web-based note-taking application that allows users to c
 - **Dark Mode**: Toggle between light and dark mode.
 - **Responsive Design**: Fully responsive interface for desktops, tablets, and mobile screens.
 
----
 
 ## Tech Stack
 
@@ -66,8 +64,11 @@ python manage.py runserver
 
 ## Frontend Informations
 
-### Repository: https://github.com/jisan-mahmud/note_keeper_frontend
-### Live Link: https://note-keeper-seven-coral.vercel.app/
+ - **Repository:** https://github.com/jisan-mahmud/note_keeper_frontend
+ - **Live Link:** https://note-keeper-seven-coral.vercel.app/
+
+ ## Database Design 
+ ![db image](DB Design\note_memo__db.jpg)
 
 ## Contact
 

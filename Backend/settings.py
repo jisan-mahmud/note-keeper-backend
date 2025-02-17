@@ -26,6 +26,8 @@ INSTALLED_APPS = [
     'djoser',
 
     'accounts',
+    'tags',
+    'notes',
 
     #extrensions for debuging
     'django_extensions'
