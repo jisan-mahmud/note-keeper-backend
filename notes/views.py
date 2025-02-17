@@ -1,6 +1,7 @@
 from rest_framework import viewsets
 from .serializers import NoteSerializer
 from .models import Notes
+from tags.models import Tags
 
 class NotesViewset(viewsets.ModelViewSet):
     serializer_class = NoteSerializer
@@ -9,3 +10,20 @@ class NotesViewset(viewsets.ModelViewSet):
         user = self.request.user
         notes = Notes.objects.filter(user= user)
         return notes
+    
+    def perform_create(self, serializer):
+        #save note with user
+        note = serializer.save(user= self.request.user)
+
+
+        # check has tags and if tags has then set tags in note
+        tags = self.request.data.get('tags', '')
+        tags_name = []
+        if(tags):
+            tags = tags.lower().split(',')
+            for tag_name in tags:
+                tag, create = Tags.objects.get_or_create(name= tag_name)
+                tags_name.append(tag)
+
+        note.tags.set(tags_name)
+        return note
