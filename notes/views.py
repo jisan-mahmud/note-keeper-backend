@@ -10,9 +10,9 @@ class NotesViewset(viewsets.ModelViewSet):
     filterset_fields = ['tags__name']
 
     def get_queryset(self):
-        print(self.kwargs.get('notes'))
+        params = self.request.query_params.get('tags__name')
         user = self.request.user
-        notes = Notes.objects.filter(user= user, tags__name= 'okay').prefetch_related('tags')
+        notes = Notes.objects.filter(user= user).prefetch_related('tags')
         return notes
     
 
@@ -26,7 +26,7 @@ class NotesViewset(viewsets.ModelViewSet):
         if(tags):
             tags = tags.lower().split(',')
             for tag_name in tags:
-                tag, create = Tags.objects.get_or_create(name= tag_name, user= self.request.user)
+                tag, create = Tags.objects.get_or_create(name= tag_name.strip(), user= self.request.user)
                 tags_name.append(tag)
 
         note.tags.set(tags_name)
