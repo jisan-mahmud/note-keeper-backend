@@ -7,12 +7,15 @@ from django.db.models import Prefetch
 class NotesViewset(viewsets.ModelViewSet):
 
     serializer_class = NoteSerializer
+    filterset_fields = ['tags__name']
 
     def get_queryset(self):
+        print(self.kwargs.get('notes'))
         user = self.request.user
-        notes = Notes.objects.filter(user= user).prefetch_related('tags')
+        notes = Notes.objects.filter(user= user, tags__name= 'okay').prefetch_related('tags')
         return notes
     
+
     def perform_create(self, serializer):
         #save note with user
         note = serializer.save(user= self.request.user)
