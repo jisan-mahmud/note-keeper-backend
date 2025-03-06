@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'djoser',
     'django_filters',
+    'corsheaders',
 
     'accounts',
     'tags',
@@ -62,12 +63,15 @@ SIMPLE_JWT = {
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
 
 ROOT_URLCONF = 'Backend.urls'
 
@@ -167,3 +171,8 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = os.getenv('HOST_EMAIL')
 EMAIL_HOST_PASSWORD = os.getenv('HOST_PASSWORD')
 EMAIL_PORT = 587  
+
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+]
