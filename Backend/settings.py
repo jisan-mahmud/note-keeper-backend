@@ -78,7 +78,7 @@ ROOT_URLCONF = 'Backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/ 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -152,7 +152,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 DJOSER = {
     'PASSWORD_RESET_CONFIRM_URL': '#/password/reset/confirm/{uid}/{token}',
     'USERNAME_RESET_CONFIRM_URL': '#/username/reset/confirm/{uid}/{token}',
-    'ACTIVATION_URL': '/activate/{uid}/{token}',
+    'ACTIVATION_URL': 'login/activate/{uid}/{token}',
     'SEND_ACTIVATION_EMAIL': True,
     'RESEND_ACTIVATION_EMAIL': True,
     'SET_PASSWORD_RETYPE': True,
@@ -162,6 +162,8 @@ DJOSER = {
     'SERIALIZERS': {
         'user_create': 'accounts.serializers.UserRegistrationSerializer',
     },
+    'EMAIL_FRONTEND_DOMAIN': 'localhost:5173',
+    'EMAIL_FRONTEND_SITE_NAME': 'Note Keeper'
 }
 
 

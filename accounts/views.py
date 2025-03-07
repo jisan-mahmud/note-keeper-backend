@@ -1,3 +1,4 @@
-from django.shortcuts import render
+from djoser import email
 
-# Create your views here.
+class ActivationEmail(email.ActivationEmail):
+    template_name = 'email/activation.html'
