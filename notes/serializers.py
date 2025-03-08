@@ -14,3 +14,14 @@ class NoteSerializer(serializers.ModelSerializer):
 
     def get_tags(self, obj):
         return [tag.name for tag in obj.tags.all()]
+    
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        words = data['note'].split()
+
+        if len(words) > 20:
+            data['note'] = " ".join(words[:20]) + '...'
+        else:
+            data['note'] = " ".join(words) 
+        
+        return data
