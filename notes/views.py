@@ -3,10 +3,12 @@ from .serializers import NoteSerializer
 from .models import Notes
 from tags.models import Tags
 from django.db.models import Prefetch
+from .paginations import NotePagination
 
 class NotesViewset(viewsets.ModelViewSet):
 
     serializer_class = NoteSerializer
+    pagination_class = NotePagination
     filterset_fields = ['tags__name']
 
     def get_queryset(self):
