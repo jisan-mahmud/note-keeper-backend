@@ -181,4 +181,5 @@ EMAIL_PORT = 587
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
+    'https://note-keeper-seven-coral.vercel.app/'
 ]
