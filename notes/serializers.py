@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from django.urls import reverse
 from .models import Notes
 
 class NoteSerializer(serializers.ModelSerializer):
@@ -23,5 +24,9 @@ class NoteSerializer(serializers.ModelSerializer):
             data['note'] = " ".join(words[:20]) + '...'
         else:
             data['note'] = " ".join(words) 
+            
+        data['link'] = {
+            'self': reverse('notes-detail', kwargs={'pk': data.get('id')})
+        }
         
         return data
