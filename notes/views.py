@@ -10,6 +10,7 @@ class NotesViewset(viewsets.ModelViewSet):
     serializer_class = NoteSerializer
     pagination_class = NotePagination
     filterset_fields = ['tags__name']
+    ordering = ['-created_at']
 
     def get_queryset(self):
         params = self.request.query_params.get('tags__name')
